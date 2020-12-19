@@ -1,7 +1,7 @@
 .DEFAULT_GOAL	:= m
 UTILS			= utils/sigsegv.cpp utils/color.cpp utils/check.cpp
 TESTS_PATH		= tests/
-MANDATORY		= strlen strcpy strcmp write
+MANDATORY		= strlen strcpy strcmp write read
 VMANDATORY		= $(addprefix v, $(MANDATORY))
 BONUS			= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone lstclear lstiter lstmap
 VBONUS			= $(addprefix v, $(BONUS))
@@ -11,18 +11,19 @@ MAIL			= $(addprefix send, $(MANDATORY)) $(addprefix send, $(BONUS))
 
 CC		= clang++
 CFLAGS	= -g3 -std=c++11 -I utils/ -I.
+VALGRIND = valgrind -q --leak-check=full
 
 $(MANDATORY): %: mandatory_start
 	@$(CC) $(CFLAGS) -fsanitize=address $(UTILS) $(TESTS_PATH)ft_$*_test.cpp -L.. -lasm && ./a.out && rm -f a.out
 
 $(VMANDATORY): v%: mandatory_start
-	@$(CC) $(CFLAGS) $(UTILS) $(TESTS_PATH)ft_$*_test.cpp -L.. -lasm && valgrind -q --leak-check=full ./a.out && rm -f a.out
+	@$(CC) $(CFLAGS) $(UTILS) $(TESTS_PATH)ft_$*_test.cpp -L.. -lasm && $(VALGRIND) ./a.out && rm -f a.out
 
 $(BONUS): %: bonus_start
 	@$(CC) $(CFLAGS) -fsanitize=address $(UTILS) $(TESTS_PATH)ft_$*_test.cpp -L.. -lasm && ./a.out && rm -f a.out
 
 $(VBONUS): v%: bonus_start
-	@$(CC) $(CFLAGS)  $(UTILS) $(TESTS_PATH)ft_$*_test.cpp -L.. -lasm && valgrind -q --leak-check=full ./a.out && rm -f a.out
+	@$(CC) $(CFLAGS)  $(UTILS) $(TESTS_PATH)ft_$*_test.cpp -L.. -lasm && $(VALGRIND) ./a.out && rm -f a.out
 
 $(VSOPEN): vs%:
 	@code $(TESTS_PATH)ft_$*_test.cpp
