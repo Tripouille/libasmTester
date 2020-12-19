@@ -29,3 +29,11 @@ void mcheck(void * p, size_t required_size)
 	free(p2);
 	#endif
 }
+
+void errnocheck(int requiredValue)
+{
+	if (errno == requiredValue)
+		cout << FG_GREEN << iTest++ << ".ERRNOOK ";
+	else
+		cout << FG_RED << iTest++ << ".ERRNOKO ";
+}

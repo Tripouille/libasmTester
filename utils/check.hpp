@@ -16,5 +16,6 @@ using namespace std;
 
 void check(bool succes);
 void mcheck(void * p, size_t required_size);
+void errnocheck(int requiredValue);
 
 #endif

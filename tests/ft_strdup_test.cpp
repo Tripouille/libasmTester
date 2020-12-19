@@ -13,7 +13,7 @@ int iTest = 1;
 int main(void)
 {
 	signal(SIGSEGV, sigsegv);
-	cout << FG_LGRAY << "ft_strdup\t: ";
+	cout << FG_LGRAY << "ft_strdup\t: "; cout.flush();
 
 	char * s = ft_strdup((char*)"coucou");
 	/* 1 */ check(!strcmp(s, "coucou"));

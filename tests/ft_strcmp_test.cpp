@@ -22,7 +22,7 @@ int wrap_strcmp(const char *s1, const char *s2)
 int main(void)
 {
 	signal(SIGSEGV, sigsegv);
-	cout << FG_LGRAY << "ft_strcmp\t: ";
+	cout << FG_LGRAY << "ft_strcmp\t: "; cout.flush();
 
 	/* 1 */ check(wrap_strcmp("", "") == 0);
 	/* 2 */ check(wrap_strcmp("Tripouille", "Tripouille") == 0);
