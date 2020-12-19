@@ -1,6 +1,12 @@
 #ifndef LIBASM_H
 # define LIBASM_H
 
+/*
+** If the callee wishes to use registers RBX, RSP, RBP, and R12–R15,
+** it must restore their original values before returning control to the caller.
+** All other registers must be saved by the caller if it wishes to preserve their values.
+*/
+
 # include <errno.h>
 # include <unistd.h>
 

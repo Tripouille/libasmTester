@@ -22,6 +22,7 @@ int main(void)
 {
 	signal(SIGSEGV, sigsegv);
 	cout << FG_LGRAY << "ft_strlen\t: ";
+
 	/* 1 */ check(wrap_strlen("123") == 3);
 	/* 2 */ check(wrap_strlen("") == 0);
 	cout << ENDL;
