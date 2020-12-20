@@ -2,6 +2,7 @@
 # define CHECK_HPP
 # include <iostream>
 # include <string>
+#include <climits>
 # include "color.hpp"
 
 # ifdef __unix__
