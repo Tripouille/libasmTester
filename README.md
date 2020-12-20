@@ -1,9 +1,8 @@
-# libftTester (2019+)
+# libasmTester (2019+)
 
-Tester for the libft project of 42 school.  
-*If all your tests are OK and the moulinette KO you, please send an email with make sendfunction ex: make sendsubstr or contact me on slack/discord for improvements*  
-Clone this tester in your libft repository. (works on linux and mac)  
-![alt text](https://i.imgur.com/EWmbpxx.png)
+Tester for the libasm project of 42 school.   
+Clone this tester in your libasm repository. (works on linux and mac)  
+It checks your malloc size and the value of errno after read and write.
 
 
 # Commands
@@ -15,17 +14,18 @@ make vm = launch mandatory tests with valgrind
 make vb = launch bonus tests with valgrind   
 make va = launch mandatory tests + bonus tests with valgrind  
 
-make [funtion name] = launch associated test ex: make calloc  
-make v[funtion name] = launch associated test with valgrind ex: make vcalloc  
-make vs[funtion name] = open the corresponding tests in vscode ex: make vscalloc  
+make [funtion name] = launch associated test ex: make strlen  
+make v[funtion name] = launch associated test with valgrind ex: make vstrlen  
+make vs[funtion name] = open the corresponding tests in vscode ex: make vsstrlen  
 
+*FOR RIGOROUS TEST YOU SHOULD RUN ALL TESTS WITH VALGRIND*  
 
 # Outputs
 
-![alt text](https://i.imgur.com/en8rJpS.png)
-![alt text](https://i.imgur.com/ZvzhIoZ.png)
+![alt text](https://i.imgur.com/bOLM4c7.png)
 
-MOK / MKO = test about your malloc size (this shouldn't be tested by moulinette)  
+MOK / MKO = test about your malloc size  
+ERRNOOK / ERRNOKO = test about errno value  
 
 # Report bugs / Improvement
-Contact me on slack or discord : jgambard or use make sendfunction ex make sendsubstr if all your tests were OK and the moulinette KO you.  
+Contact me on slack or discord : jgambard 
