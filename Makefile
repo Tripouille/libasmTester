@@ -39,7 +39,7 @@ bonus_start: update message
 	@tput setaf 5 && echo [Bonus]
 
 update:
-	#@git pull
+	@git pull
 
 message:
 
