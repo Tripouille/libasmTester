@@ -42,9 +42,8 @@ int main(void)
 	/* 1-2-3 */ check(wrap_write(p[1], p[0], "Tripouille", 3, EXIT_SUCCESS) == 3);	close(p[0]); close(p[1]); pipe(p);
 	/* 4-5-6 */ check(wrap_write(p[1], p[0], "", 0, EXIT_SUCCESS) == 0);			close(p[0]); close(p[1]); pipe(p);
 	/* 7-8-9 */ check(wrap_write(p[1], p[0], "", 1, EXIT_SUCCESS) == 1);			close(p[0]); close(p[1]);
-	/* 12-13 */ check(wrap_write(-1, p[0], "", 1, EBADF) == -1);					p[1] = open("files/file", O_RDWR | O_DIRECT); 
-	/* 14-15 */ check(wrap_write(p[1], p[0], "", 1, EINVAL) == -1); 				close(p[1]); pipe(p); close(p[0]);
-	/* 10-11 */ check(wrap_write(p[1], p[0], "", 1, EPIPE) == -1);					close(p[1]);
+	/* 10-11 */ check(wrap_write(-1, p[0], "", 1, EBADF) == -1);					pipe(p); close(p[0]);
+	/* 12-13 */ check(wrap_write(p[1], p[0], "", 1, EPIPE) == -1);					close(p[1]);
 	cout << ENDL;
 	return (0);
 }

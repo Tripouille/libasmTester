@@ -37,9 +37,8 @@ int main(void)
 	/* 1-2-3 */ check(wrap_read(fd, "Tripouille", 0, EXIT_SUCCESS) == 0);	close(fd); fd = open("files/file", O_RDONLY);
 	/* 4-5-6 */ check(wrap_read(fd, "Tripouille", 3, EXIT_SUCCESS) == 3);	close(fd); fd = open("files/file", O_RDONLY);
 	/* 7-8-9 */ check(wrap_read(fd, "Tripouille", 10, EXIT_SUCCESS) == 10);	close(fd);
-	/* 10-11 */ check(wrap_read(-1, "", 1, EBADF) == -1);					fd = open("files/file", O_RDWR | O_DIRECT);			
-	/* 12-13 */ check(wrap_read(fd, "", 1, EINVAL) == -1); 					close(fd); fd = open("files", O_RDONLY);					
-	/* 14-15 */ check(wrap_read(fd, "", 1, EISDIR) == -1);					close(fd);
+	/* 10-11 */ check(wrap_read(-1, "", 1, EBADF) == -1);					fd = open("files", O_RDONLY);					
+	/* 12-13 */ check(wrap_read(fd, "", 1, EISDIR) == -1);					close(fd);
 	cout << ENDL;
 	return (0);
 }
