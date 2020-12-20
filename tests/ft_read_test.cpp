@@ -31,7 +31,7 @@ int main(void)
 {
 	signal(SIGSEGV, sigsegv);
 	signal(SIGPIPE, SIG_IGN);
-	cout << FG_LGRAY << "ft_read\t\t: "; cout.flush();
+	CATEGORY("ft_read");
 
 	int fd = open("files/file", O_RDONLY);
 	/* 1-2-3 */ check(wrap_read(fd, "Tripouille", 0, EXIT_SUCCESS) == 0);	close(fd); fd = open("files/file", O_RDONLY);

@@ -21,7 +21,7 @@ int wrap_atoi_base(char *str, char *base)
 int main(void)
 {
 	signal(SIGSEGV, sigsegv);
-	cout << FG_LGRAY << "ft_atoi_base\t: "; cout.flush();
+	CATEGORY("ft_atoi_base");
 
 	char * bin = (char*)"01";
 	/* 1 */ check(wrap_atoi_base((char*)"0", bin) == 0);

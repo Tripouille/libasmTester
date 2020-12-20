@@ -24,7 +24,7 @@ char * wrap_strdup(const char *s1)
 int main(void)
 {
 	signal(SIGSEGV, sigsegv);
-	cout << FG_LGRAY << "ft_strdup\t: "; cout.flush();
+	CATEGORY("ft_strdup");
 
 	char const * src = ""; char * s = wrap_strdup(src); 
 	/* 1 */ check(!strcmp(s, src));

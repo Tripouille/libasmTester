@@ -1,7 +1,7 @@
 #ifndef COLOR_HPP
 # define COLOR_HPP
 # include <iostream>
-# define ENDL RESET_ALL << std::endl
+# include <iomanip>
 
 enum Color
 {
@@ -59,4 +59,6 @@ enum Color
 
 std::ostream & operator<<(std::ostream & os, Color c);
 
+# define ENDL RESET_ALL << std::endl
+# define CATEGORY(c) {cout << FG_LGRAY << setw(20) << std::left << c; cout << ": "; cout.flush();}
 #endif

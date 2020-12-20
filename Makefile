@@ -3,7 +3,7 @@ UTILS			= utils/sigsegv.cpp utils/color.cpp utils/check.cpp
 TESTS_PATH		= tests/
 MANDATORY		= strlen strcpy strcmp write read strdup
 VMANDATORY		= $(addprefix v, $(MANDATORY))
-BONUS			= atoi_base list_push_front
+BONUS			= atoi_base list_push_front list_size list_sort
 VBONUS			= $(addprefix v, $(BONUS))
 VSOPEN			= $(addprefix vs, $(MANDATORY)) $(addprefix vs, $(BONUS))
 MAIL			= $(addprefix send, $(MANDATORY)) $(addprefix send, $(BONUS))
@@ -30,12 +30,12 @@ $(VSOPEN): vs%:
 
 mandatory_start: update message
 	@tput setaf 6
-	make -C ..
+	#make -C ..
 	@tput setaf 4 && echo [Mandatory]
 
 bonus_start: update message
 	@tput setaf 6
-	make bonus -C ..
+	#make bonus -C ..
 	@tput setaf 5 && echo [Bonus]
 
 update:

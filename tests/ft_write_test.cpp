@@ -36,7 +36,7 @@ int main(void)
 {
 	signal(SIGSEGV, sigsegv);
 	signal(SIGPIPE, SIG_IGN);
-	cout << FG_LGRAY << "ft_write\t: "; cout.flush();
+	CATEGORY("ft_write");
 
 	int p[2]; pipe(p);
 	/* 1-2-3 */ check(wrap_write(p[1], p[0], "Tripouille", 3, EXIT_SUCCESS) == 3);	close(p[0]); close(p[1]); pipe(p);

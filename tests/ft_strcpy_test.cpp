@@ -23,7 +23,7 @@ char * wrap_strcpy(char *dst, const char *src)
 int main(void)
 {
 	signal(SIGSEGV, sigsegv);
-	cout << FG_LGRAY << "ft_strcpy\t: "; cout.flush();
+	CATEGORY("ft_strcpy");
 
 	char buffer[100] = {0};
 	/* 1-2 */ check(!strcmp(wrap_strcpy(buffer, "123"), "123"));
