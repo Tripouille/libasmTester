@@ -5,6 +5,8 @@ extern "C"
 #undef new
 }
 
+# define O_DIRECT	 040000
+
 #include <fcntl.h>
 #include "sigsegv.hpp"
 #include "check.hpp"
