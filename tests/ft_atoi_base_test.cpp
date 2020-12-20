@@ -70,6 +70,10 @@ int main(void)
 	/* 40 */ check(wrap_atoi_base((char*)"1", (char*)"01\f") == 0);
 	/* 41 */ check(wrap_atoi_base((char*)"1", (char*)"01\r") == 0);
 	/* 42 */ check(wrap_atoi_base((char*)"", bin) == 0);
+	char s8[] = {'0', '1', 8, 0}; char s14[] = {'0', '1', 14, 0}; char * gap = (char*)"0123450";
+	/* 43 */ check(wrap_atoi_base((char*)"1", s8) == 1);
+	/* 44 */ check(wrap_atoi_base((char*)"1", s14) == 1);
+	/* 45 */ check(wrap_atoi_base((char*)"1", gap) == 0);
 	cout << ENDL;
 	return (0);
 }
