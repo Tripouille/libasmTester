@@ -1,7 +1,7 @@
 .DEFAULT_GOAL	:= m
 UTILS			= utils/sigsegv.cpp utils/color.cpp utils/check.cpp
 TESTS_PATH		= tests/
-MANDATORY		= strlen strcpy strcmp write read
+MANDATORY		= strlen strcpy strcmp write read strdup
 VMANDATORY		= $(addprefix v, $(MANDATORY))
 BONUS			= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone lstclear lstiter lstmap
 VBONUS			= $(addprefix v, $(BONUS))
