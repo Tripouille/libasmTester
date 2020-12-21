@@ -1,4 +1,4 @@
-.DEFAULT_GOAL	:= m
+.DEFAULT_GOAL	:= a
 UTILS			= utils/sigsegv.cpp utils/color.cpp utils/check.cpp
 TESTS_PATH		= tests/
 MANDATORY		= strlen strcpy strcmp write read strdup
@@ -56,4 +56,4 @@ clean:
 fclean:
 	make fclean -C ..	
 
-.PHONY:	mandatory_start m vm bonus_start b vb a va clean update message $(VSOPEN) $(MAIL)
+.PHONY:	mandatory_start m vm bonus_start b vb a va clean update message $(VSOPEN)
