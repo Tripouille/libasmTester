@@ -26,11 +26,11 @@ int main(void)
 
 	/* 1 */ check(wrap_strcmp("", "") == 0);
 	/* 2 */ check(wrap_strcmp("Tripouille", "Tripouille") == 0);
-	/* 3 */ check(wrap_strcmp("Tripouille", "tripouille") == 'T' - 't');
-	/* 4 */ check(wrap_strcmp("Tripouille", "TriPouille") == 'p' - 'P');
-	/* 5 */ check(wrap_strcmp("Tripouille", "TripouillE") == 'e' - 'E');
-	/* 6 */ check(wrap_strcmp("Tripouille", "TripouilleX") == -'X');
-	/* 7 */ check(wrap_strcmp("Tripouille", "Tripouill") == 'e');
+	/* 3 */ check(wrap_strcmp("Tripouille", "tripouille") < 0);
+	/* 4 */ check(wrap_strcmp("Tripouille", "TriPouille") > 0);
+	/* 5 */ check(wrap_strcmp("Tripouille", "TripouillE") > 0);
+	/* 6 */ check(wrap_strcmp("Tripouille", "TripouilleX") < 0);
+	/* 7 */ check(wrap_strcmp("Tripouille", "Tripouill") > 0);
 	cout << ENDL;
 	return (0);
 }

@@ -18,7 +18,7 @@ ssize_t wrap_read(int fd, char const *s, size_t nbyte, int erronoValue)
 {
 	errno = 0;
 	int tripouille[42]; char buffer[100] = {0};
-	ssize_t r = ft_read(fd, buffer, nbyte);
+	ssize_t r = read(fd, buffer, nbyte);
 	//cout << "errno value = " << errno << endl;
 	errnocheck(erronoValue); char c = -1; read(fd, &c, 1);
 	if (erronoValue == EXIT_SUCCESS)

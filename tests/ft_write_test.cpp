@@ -18,7 +18,7 @@ ssize_t wrap_write(int out, int in, const void *src, size_t nbyte, int erronoVal
 {
 	errno = 0;
 	int tripouille[42];
-	ssize_t r = ft_write(out, src, nbyte);
+	ssize_t r = write(out, src, nbyte);
 	//cout << "errno value = " << errno << endl;
 	errnocheck(erronoValue);
 	if (erronoValue == EXIT_SUCCESS)

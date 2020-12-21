@@ -30,12 +30,12 @@ $(VSOPEN): vs%:
 
 mandatory_start: update message
 	@tput setaf 6
-	#make -C ..
+	make -C ..
 	@tput setaf 4 && echo [Mandatory]
 
 bonus_start: update message
 	@tput setaf 6
-	#make bonus -C ..
+	make bonus -C ..
 	@tput setaf 5 && echo [Bonus]
 
 update:
