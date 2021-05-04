@@ -29,6 +29,10 @@ int main(void)
 	/* 2 */ check(wrap_list_size(list) == 1);
 	ft_list_push_front(&list, (void*)2);
 	/* 3 */ check(wrap_list_size(list) == 2);
+	for (long i = 0; i < 40; ++i) {
+		ft_list_push_front(&list, (void*)(i + 3));
+	}
+	/* 4 */ check(wrap_list_size(list) == 42);
 	lst_clean(&list);
 	cout << ENDL;
 	return (0);
