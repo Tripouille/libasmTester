@@ -10,7 +10,7 @@ MAIL			= $(addprefix send, $(MANDATORY)) $(addprefix send, $(BONUS))
 
 
 CC		= clang++
-CFLAGS	= -g3 -std=c++11 -I utils/ -I.
+CFLAGS	= -g3 -std=c++11 -I utils/ -I. -Wl,-z,noexecstack -Wno-unused-result
 VALGRIND = valgrind -q --leak-check=full
 
 $(MANDATORY): %: mandatory_start
