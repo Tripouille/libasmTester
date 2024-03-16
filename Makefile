@@ -1,4 +1,5 @@
 .DEFAULT_GOAL	:= a
+UPD				?= 1
 UTILS			= utils/sigsegv.cpp utils/color.cpp utils/check.cpp
 UTILS_O			= $(UTILS:.cpp=.o)
 TESTS_PATH		= tests/
@@ -44,8 +45,12 @@ bonus_start: update message
 	@tput setaf 5 && echo [Bonus]
 
 update:
+ifeq ($(UPD), 1)
 	@tput setaf 3 && echo "[Checking for updates]"
 	@git pull
+else
+	@tput setaf 3 && echo "[Skipping update check]"
+endif
 
 message:
 
