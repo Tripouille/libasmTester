@@ -1,4 +1,4 @@
-.DEFAULT_GOAL	:= va
+.DEFAULT_GOAL	:= a
 UTILS			= utils/sigsegv.cpp utils/color.cpp utils/check.cpp
 UTILS_O			= $(UTILS:.cpp=.o)
 

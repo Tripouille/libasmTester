@@ -11,7 +11,7 @@ git clone git@github.com:Tripouille/libasmTester.git && echo "libasmTester" >> .
 
 ## Commands
 
-`make` = alias to `make va`
+`make` = alias to `make a`
 
 `make m` = launch mandatory tests  
 `make b` = launch bonus tests  
