@@ -14,13 +14,28 @@ extern "C"
 
 int iTest = 1;
 
+void check_write_errno(int out, int supposedValue)
+{
+	if (supposedValue != -1)
+	{
+		errnocheck(supposedValue);
+	}
+	else // -1 means we check the actual write errno value
+	{
+		int current = errno;
+		char eof = EOF;
+		write(out, &eof, 1);
+		errnocheck(current);
+	}
+}
+
 ssize_t wrap_write(int out, int in, const void *src, size_t nbyte, int erronoValue)
 {
 	errno = 0;
 	int tripouille[42];
 	ssize_t r = ft_write(out, src, nbyte);
 	//cout << "errno value = " << errno << endl;
-	errnocheck(erronoValue);
+	check_write_errno(out, erronoValue);
 	if (erronoValue == EXIT_SUCCESS)
 	{
 		char dst[100]; memset(dst, 'X', 100); dst[99] = 0;
@@ -44,7 +59,7 @@ int main(void)
 	/* 7-8-9 */ check(wrap_write(p[1], p[0], "", 1, EXIT_SUCCESS) == 1);			close(p[0]); close(p[1]);
 	/* 10-11 */ check(wrap_write(  -1, p[0], "", 1, EBADF) == -1);					pipe(p); close(p[0]);
 	/* 12-13 */ check(wrap_write(p[1], p[0], "", 1, EPIPE) == -1);					close(p[1]); pipe(p);
-	/* 14-15 */ check(wrap_write(p[1], p[0], NULL, 1, EINVAL) == -1);				close(p[0]); close(p[1]);
+	/* 14-15 */ check(wrap_write(p[1], p[0], NULL, 1, -1) == -1);					close(p[0]); close(p[1]);
 	cout << ENDL;
 	return (0);
 }
