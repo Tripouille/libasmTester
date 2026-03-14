@@ -17,8 +17,8 @@ void wrap_list_sort(t_list **begin_list, int (*cmp)(void*, void*))
 	tripouille[41] = 42;
 }
 
-int lower(void *d1, void *d2)
-{return ((long long)d1 > (long long)d2);}
+int lower(void *d0, void *d1)
+{ return ((long long)d0 > (long long)d1) - ((long long)d0 < (long long)d1); }
 
 int main(void)
 {
