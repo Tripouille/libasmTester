@@ -27,7 +27,10 @@ UPD				?= 1
 
 CC		= clang++
 CFLAGS	= -g3 -std=c++11 -I utils/ -I.
+UNAME_S	:= $(shell uname -s)
+ifeq ($(UNAME_S),Linux)
 CFLAGS += -Wl,-z,noexecstack -Wno-unused-result -Wno-unknown-warning-option -Wno-unused-command-line-argument
+endif
 VALGRIND = valgrind -q --leak-check=full
 
 $(MANDATORY): %: mandatory_start $(UTILS_O) $(TESTS_PATH)ft_%_test.o
